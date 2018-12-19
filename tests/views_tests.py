@@ -81,13 +81,13 @@ class ProxyViewTests(TestCase):
                 self.assertEqual(request_data.files, {'file': upload_data})
                 self.assertEqual(request_data.data['file'], upload_data)
 
-    def test_post_audio_file_return_raw(self):
+    def test_return_raw_audio_file(self):
         view = ProxyView()
         view.return_raw = True
         test_content = b'ID3\x04\x00\x00\x00\x00\x00#TSSE\x00\x00\x00\x0f\x00\x00\x03Lavf57.71.100\x00\xff\xf3'
 
         factory = APIRequestFactory()
-        request = factory.post('http://someurl')
+        request = factory.get('http://someurl')
         request.content_type = 'audio/mpeg'
         request.query_params = ''
         request.data = QueryDict(mutable=True)
