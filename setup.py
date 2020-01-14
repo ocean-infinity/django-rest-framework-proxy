@@ -17,7 +17,8 @@ license = 'BSD'
 install_requires = [
     'django>=1.8',
     'djangorestframework>=3.1.0',
-    'requests>=1.1.0'
+    'requests>=1.1.0',
+    'six>=1.10.0',
 ]
 classifiers = [
     'Environment :: Web Environment',
